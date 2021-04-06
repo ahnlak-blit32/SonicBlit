@@ -1,33 +1,34 @@
-# 32Blit Boilerplate
+# SonicBlit
 
-![Build](https://github.com/32blit/32blit-boilerplate/workflows/Build/badge.svg)
+![Build](https://github.com/ahnlak-blit32/SonicBlit/workflows/Build/badge.svg)
 
-This is a basic template for starting 32blit projects. It shows the basic
-code layout and asset pipeline, hopefully giving folk a starting point for
-any new projects.
+While the 32Blit is perfectly capable of playing WAV and MP3 audio, thanks to
+it's ever-expanding API, the fact remains that audio files can take up a lot
+of space once compiled into your project.
 
-It's based on the original `template` project from the 
-[32Blit Beta](https://github.com/pimoroni/32blit-beta), with added asset
-handling, and some tidying up to fit in with how I do things.
+In the 'old days' of the C64 (lesser home computers were also available) game
+music wasn't encoded this way; it was essentially stored as a sequence of notes
+to be played, often wich spectacularly obscure and twisted space-saving tricks
+to squeeze every last byte out of the limited memory.
 
-## Usage
+We don't have to go that far any more, but rendering your game music down to
+a simple sequence of notes does save a whole lot of memory and, well, it feels
+a whole lot more 8 bit!
 
-[Use this template](https://github.com/32blit/32blit-boilerplate/generate) to
-generate your own project.
 
-* Edit the CMakeList.txt file to set the name of your project
-* Edit the metadata.yml file to set the information for your project
-* Edit the LICENSE file to set your name on the license
-* Write lots of super cool code!
+# The Compiler
 
-You should then be able to follow the usual build instructions.
+Taking inspiration from the likes of SonicPi (but with a much less powerful 
+'language' at it's heart), SonicBlit can read text files defining your music
+and play them for you to test, reloading when they change and generally making
+your music-debugging life as easy as possible.
 
-For local builds this is:
-```
-mkdir build
-cd build
-cmake -D32BLIT_DIR=/path/to/32blit-sdk/ ..
-```
+Once you're done, you can compile those text (source) files into a single binary
+data block, which can be added to your normal asset pipeline.
 
-Platform/Editor specific insctuctions [can be found in the main 32blit repo](https://github.com/pimoroni/32blit-beta#more-docs)
-(For Visual Studio, you should follow the "Option 2" instructions, as the boilerplate does not contain a solution file)
+
+# The Library
+
+Within your game, you will be able to simply drop the `SonicBlit` directory
+into your project, add the relavent entries into your `CMakeLists.txt` file, 
+and then add appropriate calls into your game code.

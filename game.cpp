@@ -1,6 +1,11 @@
 #include "game.hpp"
+#include "SonicBlit.hpp"
+
+#include "assets-test.hpp"
 
 using namespace blit;
+
+SonicBlit *g_audio;
 
 ///////////////////////////////////////////////////////////////////////////
 //
@@ -10,6 +15,7 @@ using namespace blit;
 //
 void init() {
     set_screen_mode(ScreenMode::hires);
+    g_audio = new SonicBlit( 0, asset_test_song );
 }
 
 ///////////////////////////////////////////////////////////////////////////
@@ -41,4 +47,5 @@ void render(uint32_t time) {
 // amount if milliseconds elapsed since the start of your game
 //
 void update(uint32_t time) {
+    g_audio->update( time );
 }

@@ -6,3 +6,7 @@ assets.cpp:
   assets/no-image.png:
     name: asset_no_image
 
+assets-test.cpp:
+  assets/test-song.csv:
+    type: raw/csv
+    name: asset_test_song
